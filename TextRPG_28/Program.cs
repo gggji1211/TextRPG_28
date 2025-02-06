@@ -3,13 +3,13 @@
 
     class Program
     {// 수정
-        static int level = 1;
-        static string name = ""; // 임의로 정하기
-        static string job = "전사"; // 임의로 정하기 
-        static int attack = 10;// 임의로 정하기 
-        static int defense = 5;// 임의로 정하기 
-        static int hp = 100;// 임의로 정하기 
-        static int gold = 50;// 임의로 정하기 
+        static int Level = 1;
+        static string Name = ""; // 임의로 정하기
+        static string Job = "전사"; // 임의로 정하기 
+        static int Attack = 10;// 임의로 정하기 
+        static int Defense = 5;// 임의로 정하기 
+        static int Hp = 100;// 임의로 정하기 
+        static int Gold = 50;// 임의로 정하기 
 
         static void Main()
         {
