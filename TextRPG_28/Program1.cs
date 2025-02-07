@@ -1,56 +1,91 @@
-﻿namespace TextRPG_28
+﻿using System;
+namespace TextRPG_28;
+class Program
 {
-
-    class Program
-    {// 수정
-        static int Level = 1;
-        static string Name = ""; // 임의로 정하기
-        static string Job = "전사"; // 임의로 정하기 
-        static int Attack = 10;// 임의로 정하기 
-        static int Defense = 5;// 임의로 정하기 
-        static int Hp = 100;// 임의로 정하기 
-        static int Gold = 50;// 임의로 정하기 
-
-        static void Main()
-        {
-            Console.WriteLine("스파르타 던전에 오신 여러분 환영합니다.");
-            Console.WriteLine("이제 전투를 시작할 수 있습니다.\n");
-
-            while (true)
-            {
-                Console.WriteLine("1. 상태 보기");
-                Console.WriteLine("2. 전투 시작\n");
-                Console.Write("원하시는 행동을 입력해주세요.\n>> ");
-
-                string input = Console.ReadLine();
-                Console.Clear();
-
-                if (input == "1")
-                {
-                    ShowStatus();
-                }
-                else if (input == "2")
-                {
-                    Console.WriteLine("전투를 시작합니다...\n");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("잘못된 입력입니다. 다시 입력해주세요.\n");
-                }
-            }
-        }
-
-        static void ShowStatus()
-        {
-            Console.WriteLine("【 상태 보기 】\n");
-            Console.WriteLine($"레벨 : {level}");
-            Console.WriteLine($"이름 : {name}");
-            Console.WriteLine($"직업 : {job}");
-            Console.WriteLine($"공격력 : {attack}");
-            Console.WriteLine($"방어력 : {defense}");
-            Console.WriteLine($"체력 : {health}");
-            Console.WriteLine($"Gold : {gold}\n");
-        }
+    static void Main()
+    {
+        GameManager game = new GameManager();
+        game.StartGame();
     }
 }
+
+class GameManager
+{
+    private int Level = 1;
+    private string Name = "플레이어";  // 기본 이름 설정
+    private string Job = "전사";
+    private int Attack = 10;
+    private int Defense = 5;
+    private int Hp = 100;
+    private int Gold = 50;
+
+    public void StartGame()
+    {
+        Console.Clear();
+        Console.WriteLine("스파르타 던전에 오신 여러분 환영합니다.");
+        Console.WriteLine("이제 모험을 시작할 수 있습니다.");
+
+        MainScreen();
+    }
+
+    public void MainScreen()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("\n[ 마을 ]");
+            Console.WriteLine("1. 상태 보기");
+            Console.WriteLine("2. 전투 시작");
+
+            int input = Choice.Getintput(1, 2);
+            switch (input)
+            {
+                case 1:
+                    ShowStatus();
+                    break;
+                case 2:
+                    Battle();
+                    break;
+
+            }
+        }
+    }
+
+    private void ShowStatus()
+    {
+        Console.Clear();
+        Console.WriteLine("\n【 상태 보기 】");
+        Console.WriteLine($"레벨 : {Level}");
+        Console.WriteLine($"이름 : {Name}");
+        Console.WriteLine($"직업 : {Job}");
+        Console.WriteLine($"공격력 : {Attack}");
+        Console.WriteLine($"방어력 : {Defense}");
+        Console.WriteLine($"체력 : {Hp}");
+        Console.WriteLine($"Gold : {Gold}\n");
+
+        Console.WriteLine("나가기 : 0");
+
+        int input = Choice.Getintput(0, 0);
+        switch (input)
+        {
+            case 0:
+                MainScreen();
+                break;
+
+        }
+    }
+
+    private void Battle()
+    {
+        Console.Clear();
+
+
+
+
+    }
+}
+
+
+
+  
+
